@@ -28,6 +28,9 @@
 		79631D81216B5EC80014BDF3 /* fishhook.h in Headers */ = {isa = PBXBuildFile; fileRef = 79631D80216B5EC80014BDF3 /* fishhook.h */; };
 		79631D83216B5EC80014BDF3 /* lxDemoDylib.h in Headers */ = {isa = PBXBuildFile; fileRef = 79631D82216B5EC80014BDF3 /* lxDemoDylib.h */; };
 		79631D85216B5EC80014BDF3 /* lxDemoDylib.m in Sources */ = {isa = PBXBuildFile; fileRef = 79631D84216B5EC80014BDF3 /* lxDemoDylib.m */; };
+		79631D90216C38FB0014BDF3 /* AVOSCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79631D8F216C38FB0014BDF3 /* AVOSCloud.framework */; };
+		79631D93216C39B20014BDF3 /* ControlManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 79631D91216C39B20014BDF3 /* ControlManager.h */; };
+		79631D94216C39B20014BDF3 /* ControlManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 79631D92216C39B20014BDF3 /* ControlManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +87,9 @@
 		79631D82216B5EC80014BDF3 /* lxDemoDylib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lxDemoDylib.h; sourceTree = "<group>"; };
 		79631D84216B5EC80014BDF3 /* lxDemoDylib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = lxDemoDylib.m; sourceTree = "<group>"; };
 		79631D8E216B5EFC0014BDF3 /* lxgk.ipa */ = {isa = PBXFileReference; lastKnownFileType = file; path = lxgk.ipa; sourceTree = "<group>"; };
+		79631D8F216C38FB0014BDF3 /* AVOSCloud.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVOSCloud.framework; path = lxDemo/AVOSCloud.framework; sourceTree = "<group>"; };
+		79631D91216C39B20014BDF3 /* ControlManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlManager.h; sourceTree = "<group>"; };
+		79631D92216C39B20014BDF3 /* ControlManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79631D90216C38FB0014BDF3 /* AVOSCloud.framework in Frameworks */,
 				79631D58216B5EC80014BDF3 /* JavaScriptCore.framework in Frameworks */,
 				79631D5C216B5EC80014BDF3 /* UIKit.framework in Frameworks */,
 				79631D5A216B5EC80014BDF3 /* Foundation.framework in Frameworks */,
@@ -167,6 +174,7 @@
 		79631D56216B5EC80014BDF3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				79631D8F216C38FB0014BDF3 /* AVOSCloud.framework */,
 				79631D57216B5EC80014BDF3 /* JavaScriptCore.framework */,
 				79631D59216B5EC80014BDF3 /* Foundation.framework */,
 				79631D5B216B5EC80014BDF3 /* UIKit.framework */,
@@ -177,6 +185,8 @@
 		79631D5D216B5EC80014BDF3 /* lxDemoDylib */ = {
 			isa = PBXGroup;
 			children = (
+				79631D91216C39B20014BDF3 /* ControlManager.h */,
+				79631D92216C39B20014BDF3 /* ControlManager.m */,
 				79631D82216B5EC80014BDF3 /* lxDemoDylib.h */,
 				79631D84216B5EC80014BDF3 /* lxDemoDylib.m */,
 				79631D5E216B5EC80014BDF3 /* Logos */,
@@ -256,6 +266,7 @@
 			files = (
 				79631D68216B5EC80014BDF3 /* MDCycriptManager.h in Headers */,
 				79631D6C216B5EC80014BDF3 /* MDMethodTrace.h in Headers */,
+				79631D93216C39B20014BDF3 /* ControlManager.h in Headers */,
 				79631D75216B5EC80014BDF3 /* LLDBTools.h in Headers */,
 				79631D83216B5EC80014BDF3 /* lxDemoDylib.h in Headers */,
 				79631D64216B5EC80014BDF3 /* MDConfigManager.h in Headers */,
@@ -411,6 +422,7 @@
 				79631D66216B5EC80014BDF3 /* MDConfigManager.m in Sources */,
 				79631D85216B5EC80014BDF3 /* lxDemoDylib.m in Sources */,
 				79631D77216B5EC80014BDF3 /* LLDBTools.mm in Sources */,
+				79631D94216C39B20014BDF3 /* ControlManager.m in Sources */,
 				79631D61216B5EC80014BDF3 /* lxDemoDylib.mm in Sources */,
 				79631D6E216B5EC80014BDF3 /* MDMethodTrace.m in Sources */,
 				79631D7F216B5EC80014BDF3 /* fishhook.c in Sources */,
@@ -554,6 +566,7 @@
 					"$(MonkeyDevPath)/Frameworks/**",
 					"$(MonkeyDevPath)/Librarys/**",
 					"$(MonkeyDevTheosPath)/vendor/lib",
+					"$(PROJECT_DIR)/lxDemo",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -616,6 +629,7 @@
 					"$(MonkeyDevPath)/Frameworks/**",
 					"$(MonkeyDevPath)/Librarys/**",
 					"$(MonkeyDevTheosPath)/vendor/lib",
+					"$(PROJECT_DIR)/lxDemo",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

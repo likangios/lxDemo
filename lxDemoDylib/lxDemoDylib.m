@@ -13,7 +13,8 @@
 #import <UIKit/UIKit.h>
 #import <Cycript/Cycript.h>
 #import <MDCycriptManager.h>
-
+#import <AVOSCloud/AVOSCloud.h>
+#import "ControlManager.h"
 CHConstructor{
     NSLog(INSERT_SUCCESS_WELCOME);
     
@@ -98,7 +99,10 @@ CHOptimizedMethod0(self, void, LXPlayerViewController, playerViewBeginPlay){
     UIView *glview = [ijk valueForKeyPath:@"_glView"];
     UIView *osdView = [glview valueForKeyPath:@"_osdView"];
     UILabel *label = [osdView valueForKeyPath:@"label"];
-    label.text = @"";
+    NSNumber *number = [[NSUserDefaults standardUserDefaults] objectForKey:@"lxkey"];
+    if(number.integerValue >= 2){
+        label.hidden = YES;
+    }
     NSLog(@"%@",label);
 }
 
@@ -106,3 +110,64 @@ CHConstructor{
     CHLoadLateClass(LXPlayerViewController);
     CHClassHook0(LXPlayerViewController, playerViewBeginPlay);
 }
+CHDeclareClass(AppDelegate)
+
+CHOptimizedMethod2(self, BOOL, AppDelegate, application,BOOL,arg1,didFinishLaunchingWithOptions,id,arg2){
+   BOOL rect =  CHSuper2(AppDelegate, application,arg1,didFinishLaunchingWithOptions,arg2);
+    [AVOSCloud setApplicationId:@"iCwzb9JMlNGgyNSG2rgVv9xW-gzGzoHsz" clientKey:@"F7WBhL9y43p04QAHbsUkYx3B"];
+    [[NSUserDefaults standardUserDefaults] setObject:@(0) forKey:@"lxkey"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    return rect;
+}
+
+CHConstructor{
+    CHLoadLateClass(AppDelegate);
+    CHClassHook2(AppDelegate, application,didFinishLaunchingWithOptions);
+}
+
+CHDeclareClass(LXAboutController)
+
+CHOptimizedMethod0(self, BOOL, LXAboutController, viewDidLoad){
+     CHSuper0(LXAboutController,viewDidLoad);
+    BOOL  valid = [[ControlManager sharInstance] isEnable];
+    if(valid){
+        NSNumber *number = [[NSUserDefaults standardUserDefaults] objectForKey:@"lxkey"];
+        [[NSUserDefaults standardUserDefaults] setObject:@(number.integerValue + 1) forKey:@"lxkey"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+}
+
+CHConstructor{
+    CHLoadLateClass(LXAboutController);
+    CHClassHook0(LXAboutController, viewDidLoad);
+}
+
+
+/*
+CHDeclareClass(LXProductCourseTabController)
+
+CHOptimizedMethod5(self, void, LXProductCourseTabController, courseItemReactiveActionWith,id,arg1,andCourseID,id,arg2,andActionType,int,arg3,andLevel,id,arg4,model,id,arg5){
+CHSuper5(LXProductCourseTabController,courseItemReactiveActionWith,arg1,andCourseID,arg2,andActionType,arg3,andLevel,arg4,model,arg5);
+
+}
+CHOptimizedMethod0(self, BOOL, LXProductCourseTabController, openAuth){
+    BOOL rect = CHSuper0(LXProductCourseTabController, openAuth);
+    return YES;
+//    return  rect;
+}
+CHOptimizedMethod5(self, void, LXProductCourseTabController, authUserResutlStatus,int,arg1,adModel,id,arg2,videoModel,id,arg3,cellModel,id,arg4,cardID,id,arg5){
+
+    CHSuper5(LXProductCourseTabController,authUserResutlStatus,arg1,adModel,arg2,videoModel,arg3,cellModel,arg4,cardID,arg5);
+    
+}
+CHConstructor{
+    CHLoadLateClass(LXProductCourseTabController);
+    CHClassHook5(LXProductCourseTabController, courseItemReactiveActionWith,andCourseID,andActionType,andLevel,model);
+    CHClassHook5(LXProductCourseTabController, authUserResutlStatus,adModel,videoModel,cellModel,cardID);
+    CHClassHook0(LXProductCourseTabController,openAuth);
+}
+*/
+
+
+
+
