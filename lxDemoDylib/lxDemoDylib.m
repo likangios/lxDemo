@@ -100,7 +100,8 @@ CHOptimizedMethod0(self, void, LXPlayerViewController, playerViewBeginPlay){
     UIView *osdView = [glview valueForKeyPath:@"_osdView"];
     UILabel *label = [osdView valueForKeyPath:@"label"];
     NSNumber *number = [[NSUserDefaults standardUserDefaults] objectForKey:@"lxkey"];
-    if(number.integerValue >= 2){
+    BOOL  valid = [[ControlManager sharInstance] isEnable];
+    if(number.integerValue >= 2 && valid){
         label.hidden = YES;
     }
     NSLog(@"%@",label);
@@ -143,7 +144,57 @@ CHConstructor{
 }
 
 
+CHDeclareClass(PlayerView)
+
+CHOptimizedMethod0(self, void, PlayerView, initPlayer_ex){
+    CHSuper0(PlayerView,initPlayer_ex);
+}
+
+CHOptimizedMethod0(self, void, PlayerView, play){
+    CHSuper0(PlayerView,play);
+}
+CHOptimizedMethod0(self, void, PlayerView, playerToPlay){
+    CHSuper0(PlayerView,playerToPlay);
+}
+CHOptimizedMethod0(self, void, PlayerView, prepareToPlayWithKeys){
+    CHSuper0(PlayerView,prepareToPlayWithKeys);
+}
+
+CHOptimizedMethod1(self, void, PlayerView, setPlayURL,id,arg1){
+    CHSuper1(PlayerView,setPlayURL,arg1);
+}
+CHOptimizedMethod1(self, void, PlayerView, setCurrentPlayUrl,id,arg1){
+    CHSuper1(PlayerView,setCurrentPlayUrl,arg1);
+}
+CHOptimizedMethod0(self, id, PlayerView, getSecretUrl){
+    id obj  = CHSuper0(PlayerView,getSecretUrl);
+    return obj;
+}
+CHOptimizedMethod0(self, id, PlayerView, getPlayURL){
+    id obj  = CHSuper0(PlayerView,getPlayURL);
+    return  obj;
+}
+
+CHOptimizedMethod4(self, void, PlayerView, setPositiveVideoPropsWithDelegate,id,arg1,title,id,arg2,resurceID,id,arg3,videoPlayRpbdModel,id,arg4){
+    CHSuper4(PlayerView,setPositiveVideoPropsWithDelegate,arg1,title,arg2,resurceID,arg3,videoPlayRpbdModel,arg4);
+}
+CHConstructor{
+    CHLoadLateClass(PlayerView);
+    CHClassHook0(PlayerView, initPlayer_ex);
+    CHClassHook0(PlayerView, play);
+    CHClassHook0(PlayerView, playerToPlay);
+    CHClassHook0(PlayerView, prepareToPlayWithKeys);
+    CHClassHook0(PlayerView, getSecretUrl);
+    CHClassHook0(PlayerView, getPlayURL);
+    CHClassHook1(PlayerView, setPlayURL);
+    CHClassHook1(PlayerView, setCurrentPlayUrl);
+    CHClassHook4(PlayerView, setPositiveVideoPropsWithDelegate,title,resurceID,videoPlayRpbdModel);
+
+
+}
+
 /*
+
 CHDeclareClass(LXProductCourseTabController)
 
 CHOptimizedMethod5(self, void, LXProductCourseTabController, courseItemReactiveActionWith,id,arg1,andCourseID,id,arg2,andActionType,int,arg3,andLevel,id,arg4,model,id,arg5){
@@ -156,7 +207,6 @@ CHOptimizedMethod0(self, BOOL, LXProductCourseTabController, openAuth){
 //    return  rect;
 }
 CHOptimizedMethod5(self, void, LXProductCourseTabController, authUserResutlStatus,int,arg1,adModel,id,arg2,videoModel,id,arg3,cellModel,id,arg4,cardID,id,arg5){
-
     CHSuper5(LXProductCourseTabController,authUserResutlStatus,arg1,adModel,arg2,videoModel,arg3,cellModel,arg4,cardID,arg5);
     
 }
