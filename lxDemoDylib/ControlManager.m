@@ -58,4 +58,10 @@ static CGFloat Second_Day = 24 * 60 * 60;
     NSNumber *able = [user objectForKey:@"enable"];
     return able.boolValue;
 }
+- (NSString *)testName{
+    AVUser *user = [AVUser currentUser];
+    NSString *name = [user objectForKey:@"TestName"];
+    return name;
+}
+
 @end

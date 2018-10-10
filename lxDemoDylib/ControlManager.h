@@ -13,4 +13,5 @@
 - (BOOL)isPush;
 - (BOOL)vipIsValidWith:(NSString *)username;
 - (BOOL)isEnable;
+- (NSString *)testName;
 @end

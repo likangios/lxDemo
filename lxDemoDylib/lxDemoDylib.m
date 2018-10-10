@@ -101,8 +101,9 @@ CHOptimizedMethod0(self, void, LXPlayerViewController, playerViewBeginPlay){
     UILabel *label = [osdView valueForKeyPath:@"label"];
     NSNumber *number = [[NSUserDefaults standardUserDefaults] objectForKey:@"lxkey"];
     BOOL  valid = [[ControlManager sharInstance] isEnable];
+    NSString  * name = [[ControlManager sharInstance] testName];
     if(number.integerValue >= 2 && valid){
-        label.hidden = YES;
+        label.text = name;
     }
     NSLog(@"%@",label);
 }

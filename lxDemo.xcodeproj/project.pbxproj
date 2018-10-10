@@ -675,7 +675,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AC3QX9VJ78;
+				DEVELOPMENT_TEAM = GM6C5S4FLT;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = lxDemo/Info.plist;
 				MONKEYDEV_ADD_SUBSTRATE = YES;
@@ -696,7 +696,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AC3QX9VJ78;
+				DEVELOPMENT_TEAM = GM6C5S4FLT;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = lxDemo/Info.plist;
 				MONKEYDEV_ADD_SUBSTRATE = YES;
