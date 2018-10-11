@@ -108,7 +108,10 @@ CHOptimizedMethod0(self, void, LXPlayerViewController, playerViewBeginPlay){
     NSLog(@"%@",label);
 }
 CHOptimizedMethod1(self, void, LXPlayerViewController, capturedAlert,id,arg1){
-//    CHSuper1(LXPlayerViewController, capturedAlert,arg1);
+    BOOL  valid = [[ControlManager sharInstance] isEnable];
+    if (!valid){
+        CHSuper1(LXPlayerViewController, capturedAlert,arg1);
+    }
 }
 
 CHConstructor{
