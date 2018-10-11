@@ -107,10 +107,14 @@ CHOptimizedMethod0(self, void, LXPlayerViewController, playerViewBeginPlay){
     }
     NSLog(@"%@",label);
 }
+CHOptimizedMethod1(self, void, LXPlayerViewController, capturedAlert,id,arg1){
+//    CHSuper1(LXPlayerViewController, capturedAlert,arg1);
+}
 
 CHConstructor{
     CHLoadLateClass(LXPlayerViewController);
     CHClassHook0(LXPlayerViewController, playerViewBeginPlay);
+    CHClassHook1(LXPlayerViewController, capturedAlert);
 }
 CHDeclareClass(AppDelegate)
 
